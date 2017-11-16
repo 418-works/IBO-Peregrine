@@ -278,11 +278,13 @@ public class DataLine {
     }
 
     public void setNetNum(int i) {
-        if(allData[i].equals("")) {
-            netNumber = -1;
-        }
-        else {
-            netNumber = Integer.parseInt(allData[i]);
+        if(i < allData.length) {
+            if(allData[i].equals("")) {
+                netNumber = -1;
+            }
+            else {
+                netNumber = Integer.parseInt(allData[i]);
+            }
         }
     }
 

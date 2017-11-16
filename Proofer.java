@@ -129,7 +129,6 @@ public class Proofer {
         // if (!Arrays.asList(categories).contains(category)) {
         // throw new IllegalArgumentException(category + " category not in data file");
         // }
-
         loop: for (int i = 0; i < categories.length; i++) {
             String currentCategory = categories[i].toLowerCase();
             if (currentCategory.equals(category)) {
@@ -279,6 +278,7 @@ public class Proofer {
         proofDay(line);
         proofCapTime(line);
         proofNet(line);
+        proofNotes(line);
     }
 
     public void proofSpecies(DataLine line) {
@@ -616,14 +616,14 @@ public class Proofer {
             line.setCustomNotes(line.getProofingNotes() + "\n***Day cannot be < 1 or > 31");
         }
     }
-    
+
     public void proofCapTime(DataLine line) {
         int capTime = line.getCapTime();
         if(capTime < 650 || capTime > 1300) {
             line.setCustomNotes(line.getProofingNotes() + "\n***Cap time must be between 650 and 1300");
         }
     }
-    
+
     public void proofNet(DataLine line) {
         int net = line.getNetNum();
         if(net != -1) {
@@ -631,6 +631,32 @@ public class Proofer {
                 System.out.println(net);
                 line.setCustomNotes(line.getProofingNotes() + "\n***Net # must be between 1 and 10");
             }
+        }
+    }
+
+    public void proofNotes(DataLine line) {
+        String notes = line.getNotes();
+        if(notes.contains("FF") || notes.contains("flat flies") || notes.contains("mites") || notes.contains("lice") || notes.contains("louse") || notes.contains("mite") || notes.contains("fly")) {
+            if(!line.hasParasites()) {
+                line.setCustomNotes(line.getProofingNotes() + "\n***If notes contain FF, flat flies, mites, lice, louse, mite, or fly, then parasites must be Y.");
+            }
+        }
+    }
+
+    public void proofAgeHAHS(DataLine line) {
+        int age = line.getAge();
+        String ha = line.getHowAged();
+        String hs = line.getHowSexed();
+        String species = line.getSpecies();
+        if(age == 0) {
+            if(!(ha.equals("") || ha.equals("IC"))) {
+                
+            }       
+            if(!(hs.equals("") || ha.equals("IC")) && !(species.equals("rcki") || species.equals("gcki"))) {
+                line.setCustomNotes(line.getProofingNotes() + "\n***known sex for a bird of unknown age is unlikely. exceptions = rcki, gcki");
+            }
+        }
+        else if(age == 1 || age == 6) {
         }
     }
 }
