@@ -64,6 +64,9 @@ public class DataLine {
         if (i < allData.length) {
             whoEntered = allData[i];
         }
+        else {
+            whoEntered = "";
+        }
     }
 
     public void setMasterPageNumber(int i) {
@@ -83,11 +86,17 @@ public class DataLine {
         if (i < allData.length) {
             location = allData[i];
         }
+        else {
+            location = "";
+        }
     }
 
     public void setBandSize(int i) {
         if (i < allData.length) {
             bandSize = allData[i];
+        }
+        else {
+            bandSize = "";
         }
     }
 
@@ -95,17 +104,26 @@ public class DataLine {
         if (i < allData.length) {
             disposition = allData[i];
         }
+        else {
+            disposition = "";
+        }
     }
 
     public void setBandNumber(int i) {
-        if (i < allData.length && !allData[i].equals("")) {
+        if (i < allData.length) {
             bandNumber = allData[i];
+        }
+        else {
+            bandNumber = "";
         }
     }
 
     public void setSpecies(int i) {
         if (i < allData.length) {
             species = allData[i];
+        }
+        else {
+            species = "";
         }
     }
 
@@ -125,11 +143,17 @@ public class DataLine {
         if (i < allData.length) {
             howAged = allData[i];
         }
+        else {
+            howAged = "";
+        }
     }
 
     public void setHowAged2(int i) {
         if (i < allData.length) {
             howAged2 = allData[i];
+        }
+        else {
+            howAged2 = "";
         }
     }
 
@@ -137,17 +161,26 @@ public class DataLine {
         if (i < allData.length) {
             sex = allData[i];
         }
+        else {
+            sex = "";
+        }
     }
 
     public void setHowSexed(int i) {
         if (i < allData.length) {
             howSexed = allData[i];
         }
+        else {
+            howSexed = "";
+        }
     }
 
     public void setHowSexed2(int i) {
         if (i < allData.length) {
             howSexed2 = allData[i];
+        }
+        else {
+            howSexed2 = "";
         }
     }
 
@@ -177,12 +210,15 @@ public class DataLine {
     }
 
     public void setCP(int i) {
-        if (i < allData.length && !allData[i].equals("")) {
+        if (i < allData.length) {
             try {
                 cp = Integer.parseInt(allData[i]);
             } catch (NumberFormatException e) {
                 cp = -1;
             }
+        }
+        else {
+            cp = -1;
         }
     }
 
@@ -199,14 +235,20 @@ public class DataLine {
     }
 
     public void setMuscle(int i) {
-        if (allData[i].equals("")) {
-            muscle = -1;
-        } else if (i < allData.length) {
-            try {
-                muscle = Integer.parseInt(allData[i]);
-            } catch (NumberFormatException e) {
+        if (i < allData.length) {
+            if (allData[i].equals("")) {
                 muscle = -1;
             }
+            else {
+                try {
+                    muscle = Integer.parseInt(allData[i]);
+                } catch (NumberFormatException e) {
+                    muscle = -1;
+                }
+            }
+        }
+        else {
+            muscle = -1;
         }
     }
 
@@ -226,65 +268,93 @@ public class DataLine {
         if (i < allData.length) {
             ffMlt = allData[i];
         }
+        else {
+            ffMlt = "";
+        }
     }
 
     public void setFFWear(int i) {
-        if (allData[i].equals("")) {
-            ffWear = -1;
-        } else {
-            try {
-                ffWear = Integer.parseInt(allData[i]);
-            } catch (NumberFormatException e) {
+        if (i < allData.length) {
+            if (allData[i].equals("")) {
                 ffWear = -1;
+            } else {
+                try {
+                    ffWear = Integer.parseInt(allData[i]);
+                } catch (NumberFormatException e) {
+                    ffWear = -1;
+                }
             }
+        }
+        else {
+            ffWear = -1;
         }
     }
 
     public void setWing(int i) {
-        if (allData[i].equals("")) {
-            wing = -1;
-        } else {
-            try {
-                wing = Integer.parseInt(allData[i]);
-            } catch (NumberFormatException e) {
+        if(i < allData.length) {
+            if (allData[i].equals("")) {
                 wing = -1;
+            } else {
+                try {
+                    wing = Integer.parseInt(allData[i]);
+                } catch (NumberFormatException e) {
+                    wing = -1;
+                }
             }
+        }
+        else {
+            wing = -1;
         }
     }
 
     public void setTail(int i) {
-        if (allData[i].equals("")) {
-            tail = -1;
-        } else {
-            try {
-                tail = Integer.parseInt(allData[i]);
-            } catch (NumberFormatException e) {
+        if(i < allData.length) {
+            if (allData[i].equals("")) {
                 tail = -1;
+            } else {
+                try {
+                    tail = Integer.parseInt(allData[i]);
+                } catch (NumberFormatException e) {
+                    tail = -1;
+                }
             }
+        }
+        else {
+            tail = -1;
         }
     }
 
     public void setWeight(int i) {
-        if (allData[i].equals("")) {
-            weight = -1.0;
-        } else {
-            try {
-                weight = Double.parseDouble(allData[i]);
-            } catch (NumberFormatException e) {
-                weight = -1;
+        if(i < allData.length) {
+            if (allData[i].equals("")) {
+                weight = -1.0;
+            } else {
+                try {
+                    weight = Double.parseDouble(allData[i]);
+                } catch (NumberFormatException e) {
+                    weight = -1;
+                }
             }
+        }
+        else {
+            weight = -1;
         }
     }
 
     public void setStatus(int i) {
-        if (allData[i].equals("")) {
-            status = -1;
-        } else {
-            try {
-                status = Integer.parseInt(allData[i]);
-            } catch (NumberFormatException e) {
+        if(i < allData.length) {
+            if (allData[i].equals("")) {
                 status = -1;
+            } else {
+                try {
+                    status = Integer.parseInt(allData[i]);
+                } catch (NumberFormatException e) {
+                    status = -1;
+                }
             }
+        }
+        else {
+            status = -1;
         }
     }
 
@@ -292,41 +362,59 @@ public class DataLine {
         if (i < allData.length) {
             date = allData[i];
         }
+        else {
+            date = "";
+        }
     }
 
     public void setYear(int i) {
-        if (allData[i].equals("")) {
-            year = -1;
-        } else {
-            try {
-                year = Integer.parseInt(allData[i]);
-            } catch (NumberFormatException e) {
+        if(i < allData.length) {
+            if (allData[i].equals("")) {
                 year = -1;
+            } else {
+                try {
+                    year = Integer.parseInt(allData[i]);
+                } catch (NumberFormatException e) {
+                    year = -1;
+                }
             }
+        }
+        else {
+            year = -1;
         }
     }
 
     public void setMonth(int i) {
-        if (allData[i].equals("")) {
-            month = -1;
-        } else {
-            try {
-                month = Integer.parseInt(allData[i]);
-            } catch (NumberFormatException e) {
+        if(i < allData.length) {
+            if (allData[i].equals("")) {
                 month = -1;
+            } else {
+                try {
+                    month = Integer.parseInt(allData[i]);
+                } catch (NumberFormatException e) {
+                    month = -1;
+                }
             }
+        }
+        else {
+            month = -1;
         }
     }
 
     public void setDay(int i) {
-        if (allData[i].equals("")) {
-            day = -1;
-        } else {
-            try {
-                day = Integer.parseInt(allData[i]);
-            } catch (NumberFormatException e) {
+        if(i < allData.length) {
+            if (allData[i].equals("")) {
                 day = -1;
+            } else {
+                try {
+                    day = Integer.parseInt(allData[i]);
+                } catch (NumberFormatException e) {
+                    day = -1;
+                }
             }
+        }
+        else {
+            day = -1;
         }
     }
 
@@ -343,20 +431,28 @@ public class DataLine {
     }
 
     public void setCapTime(int i) {
-        if (allData[i].equals("")) {
-            capTime = -1;
-        } else {
-            try {
-                capTime = Integer.parseInt(allData[i]);
-            } catch (NumberFormatException e) {
+        if(i < allData.length) {
+            if (allData[i].equals("")) {
                 capTime = -1;
+            } else {
+                try {
+                    capTime = Integer.parseInt(allData[i]);
+                } catch (NumberFormatException e) {
+                    capTime = -1;
+                }
             }
+        }
+        else {
+            capTime = -1;
         }
     }
 
     public void setSite(int i) {
         if (i < allData.length) {
             site = allData[i];
+        }
+        else {
+            site = "";
         }
     }
 
