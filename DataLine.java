@@ -37,7 +37,7 @@ public class DataLine {
     private int capTime;
     private String site;
     private int netNumber;
-    private boolean parasites;
+    private String parasites;
     private String disp;
     private String notes;
     private String proofingNotes;
@@ -476,11 +476,10 @@ public class DataLine {
 
     public void setParasites(int i) {
         if (i < allData.length && !allData[i].equals("")) {
-            if (allData[i].equals("Y")) {
-                parasites = true;
-            } else {
-                parasites = false;
-            }
+           parasites = allData[i];
+        }
+        else {
+            parasites = "";
         }
     }
 
@@ -501,16 +500,11 @@ public class DataLine {
     }
 
     public void setProofingNotes(int i) {
-        if (i < allData.length && !allData[i].equals("")) {
-            proofingNotes = allData[i].replaceAll("\"", "\\\"");
-            ;
-        } else {
-            proofingNotes = "";
-        }
+        proofingNotes = "";
     }
 
     public void setCustomNotes(String note) {
-        proofingNotes = note;
+        proofingNotes += note;
     }
 
     public int getDataSize() {
@@ -653,7 +647,7 @@ public class DataLine {
         return netNumber;
     }
 
-    public boolean hasParasites() {
+    public String hasParasites() {
         return parasites;
     }
 
